@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="paneOne" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polygon03.uiController">
+
+
+    <Canvas fx:id="canvasBack" height="280.0" width="280.0">
+      <StackPane.margin>
+         <Insets right="480.0" top="260.0" />
+      </StackPane.margin></Canvas>
+<Canvas fx:id="canvasIn" height="280.0" width="280.0">
+    <StackPane.margin>
+        <Insets right="480.0" top="260.0" />
+    </StackPane.margin>
+</Canvas>
+
+<VBox alignment="CENTER" spacing="10">
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <VBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Anzahl der Ecken:" />
+            <Label text="Größe:" />
+            <Label text="Animationszeit" />
+        </VBox>
+        <VBox alignment="CENTER" spacing="10">
+            <TextField fx:id="eTxtN" alignment="CENTER_RIGHT" text="5" />
+            <TextField fx:id="eTxtSize" alignment="CENTER_RIGHT" text="50" />
+            <TextField fx:id="eTxtDuration" alignment="CENTER_RIGHT" text="6" />
+        </VBox>
+        <VBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Offset X:" />
+            <Label text="Offset Y:" />
+            <Label text=" " />
+        </VBox>
+        <VBox alignment="CENTER" spacing="10">
+            <TextField fx:id="eTxtOffsetx" alignment="CENTER_RIGHT" text="100" />
+            <TextField fx:id="eTxtOffsety" alignment="CENTER_RIGHT" text="100" />
+            <Button fx:id="btnPolygon" onAction="#btnPolygon" text="Polygon/Stern erzeugen" />
+        </VBox>
+        <VBox alignment="CENTER_LEFT" spacing="10">
+                <VBox alignment="CENTER_LEFT" spacing="20">
+                    <Label text="Stern:" />
+                    <Label text="Animation:" />
+                    <Label text=" " />
+                </VBox>
+        </VBox>
+        <VBox alignment="CENTER" spacing="20">
+            <CheckBox fx:id="checkStar" selected="true" />
+            <CheckBox fx:id="checkAni" />
+            <CheckBox visible="false" />
+        </VBox>
+      <padding>
+         <Insets left="20.0" top="10.0" />
+      </padding>
+    </HBox>
+
+    <HBox alignment="CENTER" spacing="10">
+        <TextArea fx:id="txtArea" editable="false" prefHeight="130.0" prefWidth="760" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="80">
+        <Canvas fx:id="canvas" height="280.0" width="280.0">
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin></Canvas>
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <VBox alignment="CENTER_LEFT" spacing="30">
+                <VBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Hintergrundfarbe:" />
+                    <HBox alignment="CENTER" spacing="10">
+                        <VBox alignment="CENTER_LEFT" spacing="20">
+                            <Label alignment="CENTER_LEFT" text="Rot:" />
+                            <Label alignment="CENTER_LEFT" text="Grün:" />
+                            <Label alignment="CENTER_LEFT" text="Blau:" />
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="20">
+                            <Slider fx:id="redSliderBack" max="255.0" min="0.0" value="0" />
+                            <Slider fx:id="greenSliderBack" max="255.0" min="0.0" value="0" />
+                            <Slider fx:id="blueSliderBack" max="255.0" min="0.0" value="255.0" />
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="10">
+                            <TextField fx:id="eTxtRedBack" alignment="CENTER_RIGHT" prefWidth="50" text="0" />
+                            <TextField fx:id="eTxtGreenBack" alignment="CENTER_RIGHT" prefWidth="50" text="0" />
+                            <TextField fx:id="eTxtBlueBack" alignment="CENTER_RIGHT" prefWidth="50" text="255" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Objektfarbe:" />
+                    <HBox alignment="CENTER" spacing="10">
+                        <VBox alignment="CENTER_LEFT" spacing="20">
+                            <Label alignment="CENTER_LEFT" text="Rot:" />
+                            <Label alignment="CENTER_LEFT" text="Grün:" />
+                            <Label alignment="CENTER_LEFT" text="Blau:" />
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="20">
+                            <Slider fx:id="redSliderIn" max="255.0" min="0.0" value="255.0" />
+                            <Slider fx:id="greenSliderIn" max="255.0" min="0.0" value="255.0" />
+                            <Slider fx:id="blueSliderIn" max="255.0" min="0.0" value="0" />
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="10">
+                            <TextField fx:id="eTxtRedIn" alignment="CENTER_RIGHT" prefWidth="50" text="0" />
+                            <TextField fx:id="eTxtGreenIn" alignment="CENTER_RIGHT" prefWidth="50" text="0" />
+                            <TextField fx:id="eTxtBlueIn" alignment="CENTER_RIGHT" prefWidth="50" text="255" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </VBox>
+            <VBox alignment="CENTER" spacing="55">
+                <Canvas fx:id="canvasBackColor" height="100.0" width="100.0" />
+                <Canvas fx:id="canvasInColor" height="100.0" width="100.0">
+                <VBox.margin>
+                   <Insets />
+                </VBox.margin></Canvas>
+            <padding>
+               <Insets top="20.0" />
+            </padding>
+            </VBox>
+        </HBox>
+
+
+    </HBox>
+    </VBox>
+
+    <MenuBar StackPane.alignment="TOP_LEFT">
+        <menus>
+            <Menu mnemonicParsing="false" text="Datei">
+                <items>
+                    <MenuItem fx:id="menuNew" mnemonicParsing="false" onAction="#newdata" text="Neu" />
+                    <MenuItem fx:id="menuOpen" mnemonicParsing="false" onAction="#opendata" text="Öffnen" />
+                    <MenuItem fx:id="menuSave" disable="true" mnemonicParsing="false" onAction="#savedata" text="Speichern" />
+                    <MenuItem fx:id="menuSaveAs" disable="true" mnemonicParsing="false" onAction="#savedataas" text="Speichern unter" />
+                    <MenuItem fx:id="menuExport" disable="true" mnemonicParsing="false" onAction="#exportXML" text="Exportieren als XML" />
+                    <SeparatorMenuItem mnemonicParsing="false" />
+                    <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#menuexit" text="Beenden" />
+
+                    <!--onAction= "#switchToOne"
+                            text="Display Anchor Pane One"-->
+
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Bearbeiten">
+                <items>
+                    <MenuItem fx:id="edit" mnemonicParsing="false" onAction="#editCenter" text="Zentrieren" />
+
+                    <!-- onAction="#switchToTwo"
+                     text="Display Anchor Pane Two" />-->
+                </items>
+            </Menu>
+         <Menu mnemonicParsing="false" text="Hilfe">
+           <items>
+             <MenuItem mnemonicParsing="false" text="Über" onAction="#openhelp" />
+           </items>
+         </Menu>
+        </menus>
+    </MenuBar>
+</StackPane>
